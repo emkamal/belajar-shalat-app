@@ -10,8 +10,8 @@ Conventions
 
 ## Phase 0 — Project bootstrap
 
-- [ ] Ensure Node.js 18+ is installed
-- [ ] Initialize repository and Vite React + TS scaffold
+- [x] Ensure Node.js 18+ is installed
+- [x] Initialize repository and Vite React + TS scaffold
 
 ```powershell
 npm create vite@latest . -- --template react-ts
@@ -22,13 +22,13 @@ git commit -m "chore: scaffold Vite React TS"
 ```
 
 DoD
-- [ ] App runs locally at `http://localhost:5173`
+- [x] App runs locally at `http://localhost:5173`
 
 ---
 
 ## Phase 1 — Base dependencies and structure
 
-- [ ] Install core deps
+- [x] Install core deps
 
 ```powershell
 npm install react-router-dom classnames react-swipeable
@@ -56,13 +56,13 @@ public/
 ```
 
 DoD
-- [ ] Repo contains the directories above and dependencies installed
+- [x] Repo contains the directories above and dependencies installed
 
 ---
 
 ## Phase 2 — Styling foundation
 
-- [ ] Add global styles and CSS variables
+- [x] Add global styles and CSS variables
 
 Create `src/styles/global.css` with base typography, layout, and variables. Wire into `src/main.tsx`:
 
@@ -73,7 +73,7 @@ import "./styles/global.css";
 - [ ] Implement dark mode variables and `data-theme="dark"` support on `html`
 
 DoD
-- [ ] Visible base typography and light/dark theming via toggling `data-theme`
+- [x] Visible base typography and light/dark theming via toggling `data-theme`
 
 ---
 
