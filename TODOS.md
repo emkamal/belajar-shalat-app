@@ -134,12 +134,12 @@ DoD
 
 ## Phase 7 — Slide navigation & gestures
 
-- [ ] Use `react-swipeable` in `SlidePage` to support left/right swipe
-- [ ] Keyboard left/right support for desktop
-- [ ] Keep URL in sync with current slide id
+- [x] Use `react-swipeable` in `SlidePage` to support left/right swipe
+- [x] Keyboard left/right support for desktop
+- [x] Keep URL in sync with current slide id
 
 DoD
-- [ ] Swipe and keyboard navigate between slides; direct link to `/slides/:id` works
+- [x] Swipe and keyboard navigate between slides; direct link to `/slides/:id` works
 
 ---
 
