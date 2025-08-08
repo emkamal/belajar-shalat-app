@@ -119,16 +119,16 @@ DoD
 
 ## Phase 6 — Core UI components
 
-- [ ] `components/Slide.tsx` — renders fields conditionally and handles variation selection
-- [ ] `components/ToggleGroup.tsx` — show/hide Arab/Latin/Terjemahan
-- [ ] `components/FontSizePicker.tsx`
-- [ ] `components/CategoryChips.tsx`
-- [ ] `components/Illustration.tsx` — responsive image with lazy loading
-- [ ] `components/InfoPanel.tsx` — expandable penjelasan + dalil
-- [ ] `components/NavControls.tsx` — prev/next buttons
+- [x] `components/Slide.tsx` — renders fields conditionally and handles variation selection
+- [x] `components/ToggleGroup.tsx` — show/hide Arab/Latin/Terjemahan
+- [x] `components/FontSizePicker.tsx`
+- [x] `components/CategoryChips.tsx`
+- [x] `components/Illustration.tsx` — responsive image with lazy loading
+- [x] `components/InfoPanel.tsx` — expandable penjelasan + dalil
+- [x] `components/NavControls.tsx` — prev/next buttons
 
 DoD
-- [ ] Slide shows correct fields based on preferences; navigation buttons work
+- [x] Slide shows correct fields based on preferences; navigation buttons work
 
 ---
 

@@ -3,38 +3,23 @@ import { Link } from 'react-router-dom'
 function HomePage() {
   return (
     <main>
-      <div className="card" style={{ marginTop: 24 }}>
+      <div className="card section">
         <h1 style={{ marginTop: 0, marginBottom: 8 }}>BelajarShalatApp</h1>
-        <p style={{ marginTop: 0, color: 'var(--color-muted)' }}>
+        <p className="text-muted" style={{ marginTop: 0 }}>
           Aplikasi bacaan shalat lengkap, offline, ringan, dan mudah digunakan.
         </p>
 
-        <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
+        <div className="row" style={{ marginTop: 16 }}>
           {/* This Link will work after routing is wired */}
           <Link
             to="/slides/ruku_1"
-            style={{
-              display: 'inline-block',
-              background: 'var(--color-accent)',
-              color: '#fff',
-              padding: '12px 16px',
-              borderRadius: 'var(--radius-sm)',
-              fontWeight: 600,
-            }}
+            className="btn"
           >
             Mulai
           </Link>
           <Link
             to="/settings"
-            style={{
-              display: 'inline-block',
-              background: 'transparent',
-              color: 'var(--color-accent)',
-              padding: '12px 16px',
-              borderRadius: 'var(--radius-sm)',
-              fontWeight: 600,
-              border: '1px solid var(--color-accent)',
-            }}
+            className="btn btn-outline"
           >
             Pengaturan
           </Link>

@@ -11,6 +11,7 @@ export interface PreferencesState {
   fontSize: FontSize
   defaultVariation: DefaultVariation
   theme: ThemePreference
+  showConfig: boolean
 }
 
 type PreferencesAction =
@@ -20,6 +21,7 @@ type PreferencesAction =
   | { type: 'SET_FONT_SIZE'; value: FontSize }
   | { type: 'SET_DEFAULT_VARIATION'; value: DefaultVariation }
   | { type: 'SET_THEME'; value: ThemePreference }
+  | { type: 'SET_SHOW_CONFIG'; value: boolean }
 
 const DEFAULT_STATE: PreferencesState = {
   showArab: true,
@@ -28,6 +30,7 @@ const DEFAULT_STATE: PreferencesState = {
   fontSize: 'medium',
   defaultVariation: 'pendek',
   theme: 'system',
+  showConfig: false,
 }
 
 const STORAGE_KEY = 'bsapp.preferences.v1'
@@ -46,6 +49,8 @@ function reducer(state: PreferencesState, action: PreferencesAction): Preference
       return { ...state, defaultVariation: action.value }
     case 'SET_THEME':
       return { ...state, theme: action.value }
+    case 'SET_SHOW_CONFIG':
+      return { ...state, showConfig: action.value }
     default:
       return state
   }
@@ -114,6 +119,17 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
     mq.addEventListener?.('change', listener)
     return () => mq.removeEventListener?.('change', listener)
   }, [state.theme])
+
+  // Apply font size by setting a CSS variable used in global.css
+  useEffect(() => {
+    const root = document.documentElement
+    const sizeMap = {
+      small: 'var(--font-size-sm)',
+      medium: 'var(--font-size-md)',
+      large: 'var(--font-size-lg)',
+    } as const
+    root.style.setProperty('--app-font-size', sizeMap[state.fontSize])
+  }, [state.fontSize])
 
   const value = useMemo(() => ({ state, dispatch }), [state])
   return <PreferencesContext.Provider value={value}>{children}</PreferencesContext.Provider>

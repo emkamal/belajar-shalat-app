@@ -1,5 +1,6 @@
 import { lazy } from 'react'
-import { RouteObject, useRoutes, Navigate } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom'
+import { useRoutes, Navigate } from 'react-router-dom'
 
 const HomePage = lazy(() => import('../pages/HomePage'))
 const SlidePage = lazy(() => import('../pages/SlidePage'))

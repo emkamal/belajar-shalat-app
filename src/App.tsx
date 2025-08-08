@@ -1,10 +1,11 @@
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AppRoutes from './routes'
 import { usePreferences } from './state/PreferencesContext'
 
 function App() {
   const { state, dispatch } = usePreferences()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const toggleTheme = () => {
     const next = state.theme === 'light' ? 'dark' : state.theme === 'dark' ? 'system' : 'light'
@@ -13,26 +14,49 @@ function App() {
 
   return (
     <>
-      <header className="container" style={{ paddingTop: 24, paddingBottom: 12 }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <header className="container app-header">
+        <div className="app-header__bar">
           <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
-            <h1 style={{ margin: 0, fontSize: 24 }}>BelajarShalatApp</h1>
+            <h1 className="app-title">BelajarShalatApp</h1>
           </Link>
-          <button
-            type="button"
-            aria-label="Toggle theme"
-            title={`Theme: ${state.theme}. Click to change`}
-            style={{
-              background: 'transparent',
-              border: '1px solid var(--color-muted)',
-              padding: '8px 12px',
-              borderRadius: 'var(--radius-sm)',
-              cursor: 'pointer',
-            }}
-            onClick={toggleTheme}
-          >
-            Tema: {state.theme}
-          </button>
+          <div className="menu">
+            <button
+              type="button"
+              aria-label="Menu"
+              title="Menu"
+              className="btn btn-outline"
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              ☰
+            </button>
+            {menuOpen && (
+              <div className="menu__panel">
+                <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+                  <strong>Pengaturan</strong>
+                </div>
+                <div className="section">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-chip"
+                    onClick={toggleTheme}
+                    title={`Theme: ${state.theme}`}
+                  >
+                    Tema: {state.theme}
+                  </button>
+                </div>
+                <div className="section">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-chip"
+                    onClick={() => dispatch({ type: 'SET_SHOW_CONFIG', value: !state.showConfig })}
+                    aria-expanded={state.showConfig}
+                  >
+                    {state.showConfig ? 'Sembunyikan pengaturan slide' : 'Tampilkan pengaturan slide'}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
