@@ -79,41 +79,41 @@ DoD
 
 ## Phase 3 — Routing and App shell
 
-- [ ] Create `src/routes/index.tsx` with React Router setup
-- [ ] Create pages: `HomePage`, `SlidePage`, `SettingsPage`
-- [ ] Update `src/App.tsx` to provide layout and router outlet
-- [ ] Add header with app title and theme toggle placeholder
+- [x] Create `src/routes/index.tsx` with React Router setup
+- [x] Create pages: `HomePage`, `SlidePage`, `SettingsPage`
+- [x] Update `src/App.tsx` to provide layout and router outlet
+- [x] Add header with app title and theme toggle placeholder
 
 DoD
-- [ ] Navigating between `/`, `/slides/sample`, `/settings` works
+- [x] Navigating between `/`, `/slides/sample`, `/settings` works
 
 ---
 
 ## Phase 4 — Data model and sample content
 
-- [ ] Define content types in `src/utils/contentTypes.ts`
+- [x] Define content types in `src/utils/contentTypes.ts`
   - `ContentItem`, `ContentVariation`, `Penjelasan`
-- [ ] Add `src/data/toc.json` (order of slides)
-- [ ] Add `src/data/bacaan/` with sample JSON (e.g., `ruku_1.json`)
-- [ ] Implement loader helpers in `src/utils/contentLoader.ts`
+- [x] Add `src/data/toc.json` (order of slides)
+- [x] Add `src/data/bacaan/` with sample JSON (e.g., `ruku_1.json`)
+- [x] Implement loader helpers in `src/utils/contentLoader.ts`
   - load TOC
   - load content by id
 
 DoD
-- [ ] `SlidePage` can load and render sample content id from route
+- [x] `SlidePage` can load and render sample content id from route
 
 ---
 
 ## Phase 5 — Preferences state (Context)
 
-- [ ] Implement `src/state/PreferencesContext.tsx`
+- [x] Implement `src/state/PreferencesContext.tsx`
   - state: `showArab`, `showLatin`, `showTerjemahan`, `fontSize: 'small'|'medium'|'large'`, `defaultVariation: 'pendek'|'panjang'`, `theme: 'light'|'dark'|'system'`
   - reducer + actions
   - persistence: hydrate from `localStorage`, debounce writes
-- [ ] Provide context at `App` root
+- [x] Provide context at `App` root
 
 DoD
-- [ ] Values persist across reloads and drive UI toggles
+- [x] Values persist across reloads and drive UI toggles
 
 ---
 

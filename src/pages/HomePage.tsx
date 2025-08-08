@@ -12,7 +12,7 @@ function HomePage() {
         <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
           {/* This Link will work after routing is wired */}
           <Link
-            to="/slides/niat"
+            to="/slides/ruku_1"
             style={{
               display: 'inline-block',
               background: 'var(--color-accent)',
