@@ -201,7 +201,7 @@ DoD
 - [ ] Contrast and font-size scale meet WCAG AA
 
 DoD
-- [ ] Basic screen reader flow works; Arabic text direction and selection are correct
+- [x] Basic screen reader flow works; Arabic text direction and selection are correct
 
 ---
 

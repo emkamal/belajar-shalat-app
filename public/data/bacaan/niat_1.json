@@ -1,0 +1,22 @@
+{
+  "id": "niat_1",
+  "title": "Niat Shalat",
+  "arab": "نَوَيْتُ أَنْ أُصَلِّيَ لِلّٰهِ تَعَالَى",
+  "latin": "Nawaitu an ushalliya lillahi ta'ala",
+  "terjemahan": "Aku berniat shalat karena Allah Ta'ala",
+  "kategori": ["sunnah", "pendek"],
+  "variasi": [
+    {
+      "id": "niat_2",
+      "arab": "أُصَلِّي فَرْضَ الصَّلَاةِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ لِلّٰهِ تَعَالَى",
+      "latin": "Ushallii fardhas shalaati rak'ataini mustaqbilal qiblati lillahi ta'ala",
+      "terjemahan": "Aku berniat melaksanakan shalat fardhu dua rakaat menghadap kiblat karena Allah Ta'ala",
+      "kategori": ["sunnah", "panjang"]
+    }
+  ],
+  "penjelasan": {
+    "makna": "Niat adalah amalan hati. Sebagian orang membaca lafaz niat untuk membantu menghadirkan niat di dalam hati.",
+    "dalil": "HR. Bukhari & Muslim, 'Sesungguhnya setiap amalan tergantung niatnya.'"
+  }
+}
+

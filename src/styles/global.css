@@ -132,6 +132,13 @@ main {
   border-color: var(--color-muted);
   color: inherit;
 }
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--color-muted);
+  color: var(--color-muted);
+  opacity: 0.75;
+}
+.btn-ghost:hover { opacity: 1; }
 .btn-chip {
   padding: 6px 10px;
 }
@@ -149,6 +156,11 @@ main {
   border: 1px solid var(--color-muted);
   font-size: 12px;
   background: transparent;
+}
+.chip--subtle {
+  font-size: 11px;
+  padding: 2px 8px;
+  opacity: 0.7;
 }
 
 /* Layout helpers */
@@ -179,6 +191,32 @@ main {
   z-index: 50;
 }
 
+/* Homepage hero */
+.hero-card {
+  margin-top: 16px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0 0 8px 0;
+  font-size: clamp(28px, 5vw, 44px);
+}
+.lead {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.8;
+}
+.cta-row { margin-top: 16px; }
+.btn-lg { padding: 12px 16px; font-size: 1rem; }
+
+/* Small screens tweaks */
+@media (max-width: 480px) {
+  main { padding: var(--space-4); }
+  .card { padding: var(--space-4); }
+}
+
 a {
   color: var(--color-accent);
   text-decoration: none;
@@ -193,6 +231,7 @@ button {
 .text-arabic {
   font-size: 1.4em;
   line-height: 2;
+  font-family: "Amiri", serif;
 }
 
 

@@ -3,25 +3,19 @@ import { Link } from 'react-router-dom'
 function HomePage() {
   return (
     <main>
-      <div className="card section">
-        <h1 style={{ marginTop: 0, marginBottom: 8 }}>BelajarShalatApp</h1>
-        <p className="text-muted" style={{ marginTop: 0 }}>
+      <div className="card section hero-card">
+        <h1 className="hero-title">BelajarShalatApp</h1>
+        <p className="lead">
           Aplikasi bacaan shalat lengkap, offline, ringan, dan mudah digunakan.
         </p>
 
-        <div className="row" style={{ marginTop: 16 }}>
+        <div className="row cta-row">
           {/* This Link will work after routing is wired */}
           <Link
-            to="/slides/ruku_1"
-            className="btn"
+            to="/slides/niat_1"
+            className="btn btn-lg"
           >
             Mulai
-          </Link>
-          <Link
-            to="/settings"
-            className="btn btn-outline"
-          >
-            Pengaturan
           </Link>
         </div>
       </div>

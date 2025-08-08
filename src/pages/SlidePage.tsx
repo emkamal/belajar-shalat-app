@@ -93,11 +93,11 @@ function SlidePage() {
             )}
 
             <div className="section">
-              <CategoryChips categories={content.kategori} />
+              <Slide content={content} showVariationPicker={showConfig || state.showConfig} />
             </div>
 
             <div className="section">
-              <Slide content={content} showVariationPicker={showConfig || state.showConfig} />
+              <CategoryChips categories={content.kategori} />
             </div>
 
             <InfoPanel makna={content.penjelasan?.makna} dalil={content.penjelasan?.dalil} />
