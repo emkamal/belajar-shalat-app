@@ -1,0 +1,182 @@
+---
+alwaysApply: true
+---
+
+
+# 📄 Product Requirements Document (Final Draft)
+
+## App Name: BelajarShalatApp
+
+Aplikasi bacaan shalat lengkap, offline, ringan, dan bisa dipakai orang tua untuk mengajarkan anaknya atau oleh orang dewasa yang ingin belajar/menghafal bacaan shalat.
+
+---
+
+## 1. 🎯 Tujuan Utama
+
+Aplikasi ini dibuat untuk:
+
+- Menjadi **alat bantu orang tua** dalam mengajarkan shalat ke anaknya, terutama bacaan-bacaannya.
+- Menjadi **referensi bacaan shalat** yang lengkap dan mudah diakses bagi orang dewasa yang sedang belajar.
+- Menyediakan pengalaman **rapi, bisa offline, enak dibaca, dan informatif**.
+
+---
+
+## 2. 👤 Target Pengguna
+
+- **Orang tua** yang ingin mengajarkan anaknya shalat.
+- **Orang dewasa pemula** yang ingin belajar/mereview bacaan shalat.
+
+Catatan: Anak-anak bukan target langsung aplikasi ini.
+
+---
+
+## 3. 📱 Platform & Teknologi
+
+### Target Platform:
+
+- **Web (PWA)** — bisa diakses via browser dan bisa di-*install* sebagai aplikasi.
+- Harus bisa **diakses dan digunakan secara offline** setelah halaman awal terbuka.
+
+### Rekomendasi Tech Stack:
+
+- **Frontend**: HTML, CSS, TypeScript
+- **Framework**: [React](https://react.dev)
+- **Routing**: client-side router (React Router)
+- **Offline support**: Service Workers + Cache API
+- **Storage**: IndexedDB atau localStorage (untuk simpan preferensi tampilan)
+- **Build Tool**: Vite
+- **Hosting**: Vercel / Netlify / Firebase Hosting
+
+---
+
+## 4. 🧩 Fitur Utama
+
+### ✅ Konten Bacaan
+
+- Semua bacaan dalam shalat dari niat sampai salam
+- Bacaan wajib dan sunnah
+- Variasi bacaan:
+  - Pendek vs panjang
+  - Ditandai dengan label: `wajib`, `sunnah`, `panjang`, `pendek`
+- Setiap bacaan ditampilkan dalam:
+  - Arab
+  - Latin (transliterasi)
+  - Terjemahan Bahasa Indonesia
+- Semua elemen bisa di-**toggle on/off**
+- Ukuran font bisa diatur (misalnya: kecil, sedang, besar)
+
+---
+
+### ✅ Navigasi
+
+- **Slide-based view**: satu bacaan = satu slide
+- Swipe kiri/kanan untuk pindah antar bacaan (gunakan gesture library jika perlu)
+- **Homepage** berisi:
+  - Tombol besar **“Mulai”** (langsung buka slide pertama: niat)
+  - **Daftar isi** (tap untuk lompat ke bacaan tertentu)
+  - **Pengaturan tampilan**
+
+---
+
+### ✅ Pengaturan Tampilan
+
+- Toggle:
+  - Tampilkan/tidak Arab
+  - Tampilkan/tidak Latin
+  - Tampilkan/tidak Terjemahan
+- Ukuran font bisa diatur
+- Pilih versi bacaan default (pendek atau panjang)
+- **Dark mode toggle** (manual switch)
+
+---
+
+### ✅ Penjelasan Bacaan
+
+- Penjelasan tersedia di setiap bacaan:
+  - **Makna/konteks**
+  - **Dalil/hadits** yang menjadi dasar bacaan
+  - Contoh sumber: HR. Bukhari, Muslim, dll
+- Ditampilkan dengan gaya expandable atau tombol info
+
+---
+
+### ✅ Ilustrasi Gerakan Shalat
+
+- Gambar ilustrasi gerakan shalat disimpan **lokal**
+- Ditempatkan di halaman tertentu (misalnya sebelum/bersamaan dengan bacaan ruku, sujud, dsb)
+- Gambar dihasilkan AI, gaya elegan, tidak berlebihan
+- Format gambar: `.png` atau `.webp`, preloaded dan dikompresi
+
+---
+
+## 5. 📦 Data & Penyimpanan
+
+- Semua konten disimpan **lokal di browser** (pre-cached saat instalasi pertama):
+  - Teks: format JSON
+  - Gambar: preloaded assets
+- Preferensi pengguna disimpan di `localStorage` atau `IndexedDB`
+- Target total cache size: ±10–20MB
+
+---
+
+## 6. 📁 Struktur Data Contoh
+
+```json
+{
+  "id": "ruku_1",
+  "title": "Bacaan Ruku",
+  "arab": "سُبْحَانَ رَبِّيَ الْعَظِيمِ",
+  "latin": "Subhaana rabbiyal 'adhiim",
+  "terjemahan": "Maha Suci Tuhanku Yang Maha Agung",
+  "kategori": ["wajib", "pendek"],
+  "variasi": [
+    {
+      "id": "ruku_2",
+      "arab": "...",
+      "latin": "...",
+      "terjemahan": "...",
+      "kategori": ["sunnah", "panjang"]
+    }
+  ],
+  "penjelasan": {
+    "makna": "Ucapan tasbih dalam ruku sebagai bentuk pengagungan kepada Allah.",
+    "dalil": "HR. Muslim no. 772"
+  },
+  "ilustrasi": "gerakan_ruku.png"
+}
+```
+
+---
+
+## 7. 🔧 Teknologi Pendukung (Rangkuman)
+
+- **PWA**: untuk instalasi sebagai app di Android/iOS/desktop
+- **Service Worker**: untuk cache halaman dan konten statis
+- **Cache API / IndexedDB**: untuk simpan data dan preferensi offline
+- **Frontend framework**: Svelte / Vue / React
+- **UI Framework (opsional)**: Tailwind CSS / Chakra UI / Bootstrap
+- **Hosting**: Vercel / Netlify
+
+---
+
+## 8. 📌 Non-Goals
+
+- Tidak ada login/user account
+- Tidak ada backend atau server sync
+- Tidak ada tracking hafalan
+- Tidak ada fitur mode anak-anak
+- Tidak ada audio (untuk saat ini)
+- Tidak ada gamifikasi
+
+---
+
+## 9. 📌 Next Step
+
+1. Review dokumen ini
+2. Lanjut ke:
+   - Desain wireframe halaman utama dan slide
+   - Tentukan struktur folder lokal (gambar, data JSON)
+   - Setup proyek PWA dengan routing dan layout dasar
+   - Implementasi konten awal (tanpa audio dulu)
+
+

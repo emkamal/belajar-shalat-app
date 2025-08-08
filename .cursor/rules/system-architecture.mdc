@@ -1,0 +1,244 @@
+---
+alwaysApply: true
+---
+
+## BelajarShalatApp — Architecture Overview
+
+This document describes the technical architecture for BelajarShalatApp, aligned with the PRD. It focuses on a lightweight, offline-first PWA that is easy to maintain and deploy.
+
+### Goals
+- Fast, simple, fully offline-capable after first load
+- Clean UI, readable typography, accessible and mobile-first
+- Zero backend; all content local (JSON, images)
+
+### Non-goals
+- No auth, analytics, remote sync, or audio (initially)
+
+---
+
+## Tech Stack
+- Frontend: React + TypeScript
+- Build: Vite
+- Routing: React Router
+- Styling: CSS Modules or minimal utility CSS; Tailwind CSS optional
+- Offline: Service Worker + Cache API (manual or via Workbox, optional)
+- Storage: localStorage (preferences), IndexedDB optional for larger persisted data later
+- Testing: Vitest + React Testing Library (unit), Playwright (optional e2e)
+- Hosting: Vercel / Netlify / Firebase Hosting (SPA with service worker)
+
+---
+
+## High-level Architecture
+
+App is a PWA with an App Shell and Content Layer.
+
+- App Shell (pre-cached): HTML, CSS, JS bundles, router, layout, theme toggles
+- Content Layer (pre-cached): JSON data for bacaan and local images (PNG/WebP)
+- Preferences Layer: toggles (Arab/Latin/Terjemahan), font size, dark mode, default variation
+
+Data flows: Content JSON → Content Loader → Slide/Page Renderer → Components
+
+---
+
+## Directory Structure (proposed)
+
+```
+/
+  public/
+    illustrations/           # pre-compressed .webp/.png
+    manifest.webmanifest
+    icons/                   # PWA icons
+  src/
+    assets/                  # small static assets (if any)
+    data/                    # JSON content files
+    components/              # reusable UI components
+    pages/                   # route-level pages (Home, Slides, Settings)
+    routes/                  # route definitions
+    state/                   # React context(s) for preferences
+    styles/                  # global.css, variables.css (or Tailwind config)
+    sw/                      # service worker source (if custom)
+    utils/                   # helpers (cache, storage, formatting)
+    App.tsx
+    main.tsx
+  index.html
+  vite.config.ts
+```
+
+---
+
+## Routing
+- `/` Home: CTA “Mulai”, Daftar Isi, quick settings
+- `/slides/:id` Slide view (gesture-friendly)
+- `/settings` Display preferences
+- `/*` SPA fallback to `/`
+
+React Router with code-split route components for small bundles.
+
+---
+
+## UI Composition
+
+### Pages
+- HomePage: start button, TOC, quick toggles
+- SlidePage: single-bacaan view, swipe left/right, info expandable
+- SettingsPage: all toggles and font size controls
+
+### Core Components
+- Slide: renders arab/latin/translation based on preferences
+- ToggleGroup: show/hide fields (Arab/Latin/Terjemahan)
+- FontSizePicker: small/medium/large
+- CategoryChips: `wajib`, `sunnah`, `panjang`, `pendek`
+- Illustration: local image with responsive sizing and lazy load
+- InfoPanel: expandable penjelasan + dalil
+
+### Theming & Layout
+- CSS variables for colors, typography scale, spacing
+- Dark mode via `data-theme="dark"` on `html` and variable overrides
+- Mobile-first layout; larger typography; high contrast
+
+---
+
+## State Management
+- PreferencesContext (React Context + reducer):
+  - showArab: boolean
+  - showLatin: boolean
+  - showTerjemahan: boolean
+  - fontSize: 'small' | 'medium' | 'large'
+  - defaultVariation: 'pendek' | 'panjang'
+  - theme: 'light' | 'dark' | 'system'
+- Persistence:
+  - Serialize to localStorage on change; hydrate on load
+  - Debounce writes to avoid churn
+
+No global state for content; content loaded by id per route, cached in memory.
+
+---
+
+## Data Model
+
+Content is stored as JSON files, one file per bacaan or grouped by section. Example (aligned with PRD):
+
+```
+{
+  "id": "ruku_1",
+  "title": "Bacaan Ruku",
+  "arab": "سُبْحَانَ رَبِّيَ الْعَظِيمِ",
+  "latin": "Subhaana rabbiyal 'adhiim",
+  "terjemahan": "Maha Suci Tuhanku Yang Maha Agung",
+  "kategori": ["wajib", "pendek"],
+  "variasi": [
+    {
+      "id": "ruku_2",
+      "arab": "...",
+      "latin": "...",
+      "terjemahan": "...",
+      "kategori": ["sunnah", "panjang"]
+    }
+  ],
+  "penjelasan": {
+    "makna": "...",
+    "dalil": "HR. Muslim no. 772"
+  },
+  "ilustrasi": "gerakan_ruku.webp"
+}
+```
+
+Data Access Strategy:
+- Import statically for small datasets or fetch from `/data/*.json`
+- On install/first load, pre-cache all JSON and images required for offline usage
+
+---
+
+## Offline Strategy (PWA)
+
+Service Worker responsibilities:
+- Precache app shell: `index.html`, JS/CSS bundles, fonts, icons
+- Precache content: JSON files and illustrations (keep within ~10–20MB)
+- Runtime cache policies:
+  - Images: Cache First (with versioned cache)
+  - JSON: Stale-While-Revalidate or Cache First (frozen content), depending on update policy
+
+Implementation options:
+- Manual SW with `self.__PRECACHE_MANIFEST` generated by build script
+- Or use Workbox (injectManifest) to simplify caching strategies
+
+Update Strategy:
+- On new build, service worker installs a new cache and cleans old ones
+- Prompt user (in-app toast) to reload when new version is ready
+
+---
+
+## Performance
+- Keep deps minimal; prefer native browser APIs
+- Code split routes; lazy-load non-critical components
+- Preload critical fonts; use system fonts if possible
+- Use WebP images, responsive sizes, and inlining tiny assets when needed
+- Prefer constant-time operations; avoid heavy libraries
+
+---
+
+## Accessibility & i18n
+- Ensure Arabic script renders with correct direction; wrap with `dir="rtl"` where applicable
+- Provide large tap targets and sufficient color contrast (WCAG AA)
+- Keyboard navigation, focus outlines, semantic landmarks
+- Text scaling respects OS/browser settings; dynamic font size controls in-app
+- Content is Indonesian + Arabic; no runtime i18n framework needed
+
+---
+
+## Error Handling
+- Graceful fallback UI for content load errors
+- Offline indicator if network not available on first load (dev only)
+- SW install/activation errors logged to console in dev
+
+---
+
+## Security
+- No external network; minimal attack surface
+- Set CSP headers on host (disallow inline scripts if feasible)
+- Sanitize any dynamic HTML (none expected)
+
+---
+
+## Build & Deployment
+- Vite build produces hashed assets
+- Generate `manifest.webmanifest` and icons
+- Ensure service worker is registered after first paint
+- Deploy to Vercel/Netlify with SPA fallback to `index.html`
+
+---
+
+## Testing (lightweight)
+- Unit: components and utils with Vitest + RTL
+- Integration: route rendering and preference persistence
+- Optional e2e: Playwright for navigation and offline behavior
+
+---
+
+## Observability
+- No analytics by design
+- Console logs only in development; feature-flagged or stripped in prod
+
+---
+
+## Risks & Mitigations
+- Cache size creep → compress images, audit cache lists, cap total size
+- SW update complexity → simple versioning, show reload prompt
+- RTL rendering issues → explicit `dir` and font testing across devices
+
+---
+
+## Appendix: Minimal Component Map
+
+- Layout
+  - Header: title, theme toggle
+  - Content: route outlet
+- HomePage
+  - StartButton, TOCList, QuickToggles
+- SlidePage
+  - Slide (Arab/Latin/Terjemahan, CategoryChips, Illustration, InfoPanel)
+  - NavControls (Prev/Next, swipe gestures)
+- SettingsPage
+  - ToggleGroup, FontSizePicker, DefaultVariationPicker
+
+
