@@ -75,7 +75,7 @@ function SlidePage() {
   })
 
   return (
-    <main {...swipeHandlers}>
+    <main {...swipeHandlers} className="has-bottom-bar">
       <div className="card section">
         {!id && <p>Invalid slide id</p>}
         {loading && <p>Memuat…</p>}
@@ -102,7 +102,11 @@ function SlidePage() {
 
             <InfoPanel makna={content.penjelasan?.makna} dalil={content.penjelasan?.dalil} />
 
-            {id && toc.length > 0 && <NavControls toc={toc} currentId={id} />}
+            <div className="bottom-bar">
+              <div className="row">
+                {id && toc.length > 0 && <NavControls toc={toc} currentId={id} />}
+              </div>
+            </div>
           </>
         )}
       </div>

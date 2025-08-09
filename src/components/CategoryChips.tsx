@@ -10,7 +10,7 @@ export default function CategoryChips({ categories }: { categories: Category[] }
   return (
     <div className="chips">
       {categories.map((c) => (
-        <span key={c} className="chip chip--subtle">
+        <span key={c} className="chip chip--text">
           {labels[c]}
         </span>
       ))}

@@ -8,7 +8,7 @@ export default function InfoPanel({ makna, dalil }: { makna?: string; dalil?: st
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="btn btn-ghost btn-chip"
+        className="btn btn-text"
         aria-expanded={open}
       >
         {open ? 'Sembunyikan penjelasan' : 'Tampilkan penjelasan'}
