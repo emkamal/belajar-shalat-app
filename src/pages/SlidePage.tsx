@@ -133,17 +133,18 @@ function SlidePage() {
 
                 <div className="ornate-divider" />
                 <InfoPanel makna={content.penjelasan?.makna} dalil={content.penjelasan?.dalil} />
-
-                <div className="bottom-bar">
-                  <div className="row">
-                    {id && toc.length > 0 && <NavControls toc={toc} currentId={id} />}
-                  </div>
-                </div>
               </>
             )}
           </div>
         </motion.div>
       </AnimatePresence>
+      {id && toc.length > 0 && (
+        <div className="bottom-bar">
+          <div className="row">
+            <NavControls toc={toc} currentId={id} />
+          </div>
+        </div>
+      )}
     </main>
   )
 }
