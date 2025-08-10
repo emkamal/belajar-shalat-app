@@ -590,6 +590,7 @@ html[data-theme="dark"] .page-divider::before {
   z-index: 100;
 }
 .bottom-bar .row { margin-top: 0; width: 100%; justify-content: space-between; }
+.nav-controls { justify-content: space-between; margin-top: 16px; }
 
 /* Bottom bar buttons: improve contrast on green surface */
 .bottom-bar .btn,

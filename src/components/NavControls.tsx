@@ -14,11 +14,11 @@ export default function NavControls({ toc, currentId }: { toc: TableOfContentsEn
   }, [toc, currentId])
 
   return (
-    <div className="row" style={{ justifyContent: 'space-between', marginTop: 16 }}>
+    <div className="row nav-controls">
       <button
         type="button"
         disabled={!prevId}
-        onClick={() => prevId && navigate(`/slides/${prevId}`)}
+        onClick={() => prevId && navigate(`/slides/${prevId}`, { state: { dir: -1 } })}
         className="btn btn-outline"
       >
         ← Sebelumnya
@@ -26,7 +26,7 @@ export default function NavControls({ toc, currentId }: { toc: TableOfContentsEn
       <button
         type="button"
         disabled={!nextId}
-        onClick={() => nextId && navigate(`/slides/${nextId}`)}
+        onClick={() => nextId && navigate(`/slides/${nextId}`, { state: { dir: 1 } })}
         className="btn btn-outline"
       >
         Selanjutnya →
