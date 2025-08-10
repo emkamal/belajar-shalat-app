@@ -10,6 +10,7 @@ import CategoryChips from '../components/CategoryChips'
 import Illustration from '../components/Illustration'
 import InfoPanel from '../components/InfoPanel'
 import NavControls from '../components/NavControls'
+import MediaPanel from '../components/MediaPanel'
 import { usePreferences } from '../state/PreferencesContext'
 import { AnimatePresence, motion, type TargetAndTransition } from 'framer-motion'
 
@@ -132,7 +133,18 @@ function SlidePage() {
                 </div>
 
                 <div className="ornate-divider" />
-                <InfoPanel makna={content.penjelasan?.makna} dalil={content.penjelasan?.dalil} />
+                <InfoPanel
+                  makna={content.penjelasan?.makna}
+                  dalil={content.penjelasan?.dalil as unknown as (string | { sumber?: string; teks: string }[])}
+                  catatanFiqih={content.penjelasan?.catatan_fiqih}
+                />
+
+                {/* Media (image/audio) */}
+                <MediaPanel
+                  imageSrc={content.media?.gambar ? `/${content.media.gambar}` : undefined}
+                  audioSrcArab={content.media?.audio?.arab ? `/${content.media.audio.arab}` : undefined}
+                  audioSrcLatin={content.media?.audio?.latin ? `/${content.media.audio.latin}` : undefined}
+                />
               </>
             )}
           </div>

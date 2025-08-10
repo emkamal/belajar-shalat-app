@@ -2,8 +2,51 @@
   "id": "takbir_1",
   "title": "Takbiratul Ihram",
   "arab": "اللّٰهُ أَكْبَرُ",
-  "latin": "Allahu akbar",
+  "latin": "Allahu Akbar",
   "terjemahan": "Allah Maha Besar",
-  "kategori": ["wajib", "pendek"]
+  "kategori": ["rukun", "pendek"],
+  "variasi": [
+    {
+      "id": "takbir_2",
+      "arab": "اللّٰهُ أَكْبَرُ كَبِيرًا",
+      "latin": "Allahu Akbaru Kabira",
+      "terjemahan": "Allah Maha Besar dengan kebesaran yang sempurna",
+      "kategori": ["sunnah", "panjang"]
+    }
+  ],
+  "penjelasan": {
+    "makna": "Takbiratul ihram adalah takbir pertama yang menandai dimulainya shalat dan mengharamkan segala perbuatan selain shalat.",
+    "dalil": [
+      {
+        "sumber": "HR. Abu Dawud, Tirmidzi",
+        "teks": "Kunci shalat adalah bersuci, pembukanya adalah takbir, dan penutupnya adalah salam."
+      }
+    ],
+    "catatan_fiqih": "Mengangkat kedua tangan saat takbir adalah sunnah muakkadah menurut mayoritas ulama."
+  },
+  "tajwid": {
+    "arab_dengan_warna": "اللّٰهُ أَكْبَرُ",
+    "keterangan": [
+      { "kata": "اللّٰهُ", "jenis": "tafdhim", "penjelasan": "Lam dibaca tafkhim (tebal) karena didahului fathah" },
+      { "kata": "أَكْبَرُ", "jenis": "qalqalah", "penjelasan": "Huruf ba dibaca mantul ringan" }
+    ]
+  },
+  "referensi": [
+    {
+      "judul": "Sunan Abu Dawud",
+      "penulis": "Imam Abu Dawud",
+      "nomor": "61"
+    }
+  ],
+  "media": {
+    "gambar": "images/takbir_1.png",
+    "audio": {
+      "arab": "audio/takbir_1_arab.mp3",
+      "latin": "audio/takbir_1_latin.mp3"
+    }
+  },
+  "meta": {
+    "versi": 1,
+    "last_updated": "2025-08-11"
+  }
 }
-
