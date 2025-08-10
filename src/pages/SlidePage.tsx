@@ -95,7 +95,7 @@ function SlidePage() {
   }
 
   return (
-    <main {...swipeHandlers} className="has-bottom-bar overflow-hidden">
+    <main {...swipeHandlers} className="has-bottom-bar overflow-x-hidden">
       <AnimatePresence mode="wait" initial={false} custom={effectiveDir}>
         <motion.div
           key={id}

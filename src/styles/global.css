@@ -113,6 +113,8 @@ main {
 .overflow-hidden {
   overflow: hidden !important;
 }
+/* Prefer horizontal clipping without affecting vertical scroll */
+.overflow-x-hidden { overflow-x: hidden !important; }
 
 /* Utility: reset top margin on headings inside cards when needed */
 .no-top-margin { margin-top: 0 !important; }
