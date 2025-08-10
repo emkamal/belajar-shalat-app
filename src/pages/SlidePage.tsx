@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useSwipeable } from 'react-swipeable'
 import { loadContentById, loadTOC } from '../utils/contentLoader'
 import type { ContentItem, TableOfContentsEntry } from '../utils/contentTypes'
@@ -11,11 +11,12 @@ import Illustration from '../components/Illustration'
 import InfoPanel from '../components/InfoPanel'
 import NavControls from '../components/NavControls'
 import { usePreferences } from '../state/PreferencesContext'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, type TargetAndTransition } from 'framer-motion'
 
 function SlidePage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const location = useLocation() as { state?: { dir?: number } }
   const { state } = usePreferences()
   const [content, setContent] = useState<ContentItem | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -23,8 +24,7 @@ function SlidePage() {
   const [toc, setToc] = useState<TableOfContentsEntry[]>([])
   // Also respect global preference toggled from header menu
   const [showConfig] = useState<boolean>(false)
-  const [direction, setDirection] = useState<number>(0)
-  const previousIndexRef = useRef<number | null>(null)
+  // Direction for page transitions comes from router state
 
   useEffect(() => {
     let cancelled = false
@@ -60,24 +60,14 @@ function SlidePage() {
   }, [toc, id])
 
   // Track direction based on TOC order when id changes
-  useEffect(() => {
-    const currentIndex = toc.findIndex((e) => e.id === id)
-    if (currentIndex === -1) return
-    if (previousIndexRef.current === null) {
-      setDirection(0)
-    } else if (currentIndex > previousIndexRef.current) {
-      setDirection(1) // moving forward (next)
-    } else if (currentIndex < previousIndexRef.current) {
-      setDirection(-1) // moving backward (prev)
-    }
-    previousIndexRef.current = currentIndex
-  }, [id, toc])
+  // Derive direction for this render
+  const effectiveDir = (location.state && typeof location.state.dir === 'number' ? location.state.dir : 0) as number
 
   // Keyboard navigation
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'ArrowLeft' && prevId) navigate(`/slides/${prevId}`)
-      if (e.key === 'ArrowRight' && nextId) navigate(`/slides/${nextId}`)
+      if (e.key === 'ArrowLeft' && prevId) navigate(`/slides/${prevId}`, { state: { dir: -1 } })
+      if (e.key === 'ArrowRight' && nextId) navigate(`/slides/${nextId}`, { state: { dir: 1 } })
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -85,20 +75,35 @@ function SlidePage() {
 
   // Swipe navigation
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => nextId && navigate(`/slides/${nextId}`),
-    onSwipedRight: () => prevId && navigate(`/slides/${prevId}`),
+    // Swiping left: go to next; set direction for exit before navigate
+    onSwipedLeft: () => {
+      if (nextId) navigate(`/slides/${nextId}`, { state: { dir: 1 } })
+    },
+    // Swiping right: go to previous
+    onSwipedRight: () => {
+      if (prevId) navigate(`/slides/${prevId}`, { state: { dir: -1 } })
+    },
     trackTouch: true,
     trackMouse: true,
   })
 
+  // Framer Motion variants using custom direction value
+  const slideVariants = {
+    enter: (dir: number): TargetAndTransition => ({ x: dir === 0 ? 0 : dir > 0 ? '100%' : '-100%', opacity: 0 }),
+    center: { x: 0, opacity: 1 } as TargetAndTransition,
+    exit: (dir: number): TargetAndTransition => ({ x: dir === 0 ? 0 : dir > 0 ? '-100%' : '100%', opacity: 0 }),
+  }
+
   return (
     <main {...swipeHandlers} className="has-bottom-bar overflow-hidden">
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait" initial={false} custom={effectiveDir}>
         <motion.div
           key={id}
-          initial={{ x: direction === 0 ? 0 : direction > 0 ? '100%' : '-100%', opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: direction === 0 ? 0 : direction > 0 ? '-100%' : '100%', opacity: 0 }}
+          custom={effectiveDir}
+          variants={slideVariants}
+          initial={typeof effectiveDir === 'number' ? 'enter' : undefined}
+          animate="center"
+          exit="exit"
           transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
         >
           <div className="card section">
