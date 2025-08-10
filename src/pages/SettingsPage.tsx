@@ -8,10 +8,12 @@ function SettingsPage() {
   return (
     <main>
       <div className="card section">
-        <h2 style={{ marginTop: 0 }}>Pengaturan</h2>
+        <h2 className="no-top-margin">Pengaturan</h2>
+        <div className="ornate-divider" />
 
         <section className="section">
-          <h3 style={{ margin: 0, fontSize: 18 }}>Tema</h3>
+          <h3 className="section-title">Tema</h3>
+          <div className="ornate-divider" />
           <div className="row section">
             {(['light', 'dark', 'system'] as const).map((t) => (
               <button
@@ -27,17 +29,20 @@ function SettingsPage() {
         </section>
 
         <section className="section">
-          <h3 style={{ margin: 0, fontSize: 18 }}>Ukuran Font</h3>
+          <h3 className="section-title">Ukuran Font</h3>
+          <div className="ornate-divider" />
           <FontSizePicker />
         </section>
 
         <section className="section">
-          <h3 style={{ margin: 0, fontSize: 18 }}>Tampilan Bacaan</h3>
+          <h3 className="section-title">Tampilan Bacaan</h3>
+          <div className="ornate-divider" />
           <ToggleGroup />
         </section>
 
         <section className="section">
-          <h3 style={{ margin: 0, fontSize: 18 }}>Mode Bacaan</h3>
+          <h3 className="section-title">Mode Bacaan</h3>
+          <div className="ornate-divider" />
           <DefaultVariationPicker />
         </section>
       </div>

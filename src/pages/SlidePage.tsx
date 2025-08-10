@@ -92,7 +92,7 @@ function SlidePage() {
   })
 
   return (
-    <main {...swipeHandlers} className="has-bottom-bar" style={{ overflow: 'hidden' }}>
+    <main {...swipeHandlers} className="has-bottom-bar overflow-hidden">
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={id}
@@ -104,11 +104,12 @@ function SlidePage() {
           <div className="card section">
             {!id && <p>Invalid slide id</p>}
             {loading && <p>Memuat…</p>}
-            {error && <p style={{ color: 'tomato' }}>{error}</p>}
+            {error && <p className="error-text">{error}</p>}
             {!loading && !error && content && (
               <>
-                <h2 style={{ marginTop: 0 }}>{content.title}</h2>
+                <h2 className="no-top-margin">{content.title}</h2>
                 {content.ilustrasi && <Illustration file={content.ilustrasi} />}
+                <div className="ornate-divider" />
 
                 {(showConfig || state.showConfig) && (
                   <div className="row section">
@@ -125,6 +126,7 @@ function SlidePage() {
                   <CategoryChips categories={content.kategori} />
                 </div>
 
+                <div className="ornate-divider" />
                 <InfoPanel makna={content.penjelasan?.makna} dalil={content.penjelasan?.dalil} />
 
                 <div className="bottom-bar">

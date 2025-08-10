@@ -8,6 +8,7 @@ function HomePage() {
         <p className="lead">
           Aplikasi bacaan shalat lengkap, offline, ringan, dan mudah digunakan.
         </p>
+        <div className="hero-divider" />
 
         <div className="row cta-row">
           {/* This Link will work after routing is wired */}
@@ -19,6 +20,7 @@ function HomePage() {
           </Link>
         </div>
       </div>
+      <div className="page-divider" />
     </main>
   )
 }
