@@ -1,1 +1,0 @@
-import{j as a}from"./index-DlRkeyUT.js";function r(){return a.jsx("main",{children:a.jsxs("div",{className:"card",style:{marginTop:24},children:[a.jsx("h2",{style:{marginTop:0},children:"Pengaturan"}),a.jsx("p",{style:{color:"var(--color-muted)",marginBottom:0},children:"Kontrol tampilan akan ditempatkan di sini. (Placeholder)"})]})})}export{r as default};

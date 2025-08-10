@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSwipeable } from 'react-swipeable'
 import { loadContentById, loadTOC } from '../utils/contentLoader'
@@ -11,6 +11,7 @@ import Illustration from '../components/Illustration'
 import InfoPanel from '../components/InfoPanel'
 import NavControls from '../components/NavControls'
 import { usePreferences } from '../state/PreferencesContext'
+import { AnimatePresence, motion } from 'framer-motion'
 
 function SlidePage() {
   const { id } = useParams()
@@ -21,7 +22,9 @@ function SlidePage() {
   const [loading, setLoading] = useState<boolean>(true)
   const [toc, setToc] = useState<TableOfContentsEntry[]>([])
   // Also respect global preference toggled from header menu
-  const [showConfig, setShowConfig] = useState<boolean>(false)
+  const [showConfig] = useState<boolean>(false)
+  const [direction, setDirection] = useState<number>(0)
+  const previousIndexRef = useRef<number | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -56,6 +59,20 @@ function SlidePage() {
     }
   }, [toc, id])
 
+  // Track direction based on TOC order when id changes
+  useEffect(() => {
+    const currentIndex = toc.findIndex((e) => e.id === id)
+    if (currentIndex === -1) return
+    if (previousIndexRef.current === null) {
+      setDirection(0)
+    } else if (currentIndex > previousIndexRef.current) {
+      setDirection(1) // moving forward (next)
+    } else if (currentIndex < previousIndexRef.current) {
+      setDirection(-1) // moving backward (prev)
+    }
+    previousIndexRef.current = currentIndex
+  }, [id, toc])
+
   // Keyboard navigation
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -75,41 +92,51 @@ function SlidePage() {
   })
 
   return (
-    <main {...swipeHandlers} className="has-bottom-bar">
-      <div className="card section">
-        {!id && <p>Invalid slide id</p>}
-        {loading && <p>Memuat…</p>}
-        {error && <p style={{ color: 'tomato' }}>{error}</p>}
-        {!loading && !error && content && (
-          <>
-            <h2 style={{ marginTop: 0 }}>{content.title}</h2>
-            {content.ilustrasi && <Illustration file={content.ilustrasi} />}
+    <main {...swipeHandlers} className="has-bottom-bar" style={{ overflow: 'hidden' }}>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={id}
+          initial={{ x: direction === 0 ? 0 : direction > 0 ? '100%' : '-100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: direction === 0 ? 0 : direction > 0 ? '-100%' : '100%', opacity: 0 }}
+          transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
+        >
+          <div className="card section">
+            {!id && <p>Invalid slide id</p>}
+            {loading && <p>Memuat…</p>}
+            {error && <p style={{ color: 'tomato' }}>{error}</p>}
+            {!loading && !error && content && (
+              <>
+                <h2 style={{ marginTop: 0 }}>{content.title}</h2>
+                {content.ilustrasi && <Illustration file={content.ilustrasi} />}
 
-            {(showConfig || state.showConfig) && (
-              <div className="row section">
-                <ToggleGroup />
-                <FontSizePicker />
-              </div>
+                {(showConfig || state.showConfig) && (
+                  <div className="row section">
+                    <ToggleGroup />
+                    <FontSizePicker />
+                  </div>
+                )}
+
+                <div className="section">
+                  <Slide content={content} showVariationPicker={showConfig || state.showConfig} />
+                </div>
+
+                <div className="section">
+                  <CategoryChips categories={content.kategori} />
+                </div>
+
+                <InfoPanel makna={content.penjelasan?.makna} dalil={content.penjelasan?.dalil} />
+
+                <div className="bottom-bar">
+                  <div className="row">
+                    {id && toc.length > 0 && <NavControls toc={toc} currentId={id} />}
+                  </div>
+                </div>
+              </>
             )}
-
-            <div className="section">
-              <Slide content={content} showVariationPicker={showConfig || state.showConfig} />
-            </div>
-
-            <div className="section">
-              <CategoryChips categories={content.kategori} />
-            </div>
-
-            <InfoPanel makna={content.penjelasan?.makna} dalil={content.penjelasan?.dalil} />
-
-            <div className="bottom-bar">
-              <div className="row">
-                {id && toc.length > 0 && <NavControls toc={toc} currentId={id} />}
-              </div>
-            </div>
-          </>
-        )}
-      </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </main>
   )
 }

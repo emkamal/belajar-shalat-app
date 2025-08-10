@@ -1,17 +1,10 @@
 import { Suspense } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import AppRoutes from './routes'
-import { usePreferences } from './state/PreferencesContext'
 
 function App() {
-  const { state } = usePreferences()
   const navigate = useNavigate()
   const location = useLocation()
-
-  const toggleTheme = () => {
-    const next = state.theme === 'light' ? 'dark' : state.theme === 'dark' ? 'system' : 'light'
-    dispatch({ type: 'SET_THEME', value: next })
-  }
 
   return (
     <>

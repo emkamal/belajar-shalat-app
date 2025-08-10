@@ -1,6 +1,7 @@
 import { usePreferences } from '../state/PreferencesContext'
 import FontSizePicker from '../components/FontSizePicker'
 import DefaultVariationPicker from '../components/DefaultVariationPicker'
+import ToggleGroup from '../components/ToggleGroup'
 
 function SettingsPage() {
   const { state, dispatch } = usePreferences()
@@ -28,6 +29,11 @@ function SettingsPage() {
         <section className="section">
           <h3 style={{ margin: 0, fontSize: 18 }}>Ukuran Font</h3>
           <FontSizePicker />
+        </section>
+
+        <section className="section">
+          <h3 style={{ margin: 0, fontSize: 18 }}>Tampilan Bacaan</h3>
+          <ToggleGroup />
         </section>
 
         <section className="section">

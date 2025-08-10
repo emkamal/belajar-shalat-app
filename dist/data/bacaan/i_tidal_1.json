@@ -1,0 +1,18 @@
+{
+  "id": "i_tidal_1",
+  "title": "I'tidal",
+  "arab": "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ",
+  "latin": "Sami'allahu liman hamidah",
+  "terjemahan": "Allah mendengar orang yang memuji-Nya",
+  "kategori": ["wajib", "pendek"],
+  "variasi": [
+    {
+      "id": "i_tidal_2",
+      "arab": "رَبَّنَا لَكَ الْحَمْدُ مِلْءَ السَّمَاوَاتِ وَمِلْءَ الْأَرْضِ وَمِلْءَ مَا شِئْتَ مِنْ شَيْءٍ بَعْدُ",
+      "latin": "Rabbanaa lakal hamdu mil'as-samaawaati wa mil'al-ardi wa mil'a maa syi'ta min syai-in ba'du",
+      "terjemahan": "Ya Rabb kami, bagi-Mu segala puji sepenuh langit dan bumi dan sepenuh apapun yang Engkau kehendaki setelah itu",
+      "kategori": ["sunnah", "panjang"]
+    }
+  ]
+}
+

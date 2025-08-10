@@ -1,0 +1,18 @@
+{
+  "id": "sujud_1",
+  "title": "Bacaan Sujud",
+  "arab": "سُبْحَانَ رَبِّيَ الأَعْلَى",
+  "latin": "Subhaana rabbiyal a'laa",
+  "terjemahan": "Maha Suci Tuhanku Yang Maha Tinggi",
+  "kategori": ["wajib", "pendek"],
+  "variasi": [
+    {
+      "id": "sujud_2",
+      "arab": "سُبْحَانَ رَبِّيَ الأَعْلَى وَبِحَمْدِهِ",
+      "latin": "Subhaana rabbiyal a'laa wa bihamdih",
+      "terjemahan": "Maha Suci Tuhanku Yang Maha Tinggi dan dengan memuji-Nya",
+      "kategori": ["sunnah", "panjang"]
+    }
+  ]
+}
+

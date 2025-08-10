@@ -1,14 +1,14 @@
 [
-  { "id": "niat", "title": "Niat Shalat" },
-  { "id": "takbir", "title": "Takbiratul Ihram" },
-  { "id": "iftitah_1", "title": "Doa Iftitah - Pendek" },
+  { "id": "niat_1", "title": "Niat Shalat" },
+  { "id": "takbir_1", "title": "Takbiratul Ihram" },
+  { "id": "iftitah_1", "title": "Doa Iftitah" },
   { "id": "al_fatihah", "title": "Surah Al-Fatihah" },
   { "id": "ruku_1", "title": "Bacaan Ruku - Pendek" },
   { "id": "i_tidal_1", "title": "I'tidal - Pendek" },
   { "id": "sujud_1", "title": "Bacaan Sujud - Pendek" },
-  { "id": "duduk_diantara_dua_sujud_1", "title": "Duduk Diantara Dua Sujud - Pendek" },
-  { "id": "tahiyat_awal_1", "title": "Tasyahhud Awal - Pendek" },
-  { "id": "tahiyat_akhir_1", "title": "Tasyahhud Akhir - Pendek" },
-  { "id": "salam", "title": "Salam" }
+  { "id": "duduk_diantara_dua_sujud_1", "title": "Duduk Diantara Dua Sujud" },
+  { "id": "tahiyat_awal_1", "title": "Tasyahhud Awal" },
+  { "id": "tahiyat_akhir_1", "title": "Tasyahhud Akhir" },
+  { "id": "salam_1", "title": "Salam" }
 ]
 
