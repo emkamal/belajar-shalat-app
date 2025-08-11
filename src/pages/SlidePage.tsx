@@ -125,7 +125,7 @@ function SlidePage() {
                 )}
 
                 <div className="section">
-                  <Slide content={content} showVariationPicker={showConfig || state.showConfig} />
+                  <Slide content={content} showVariationPicker={true} />
                 </div>
 
                 <div className="section">

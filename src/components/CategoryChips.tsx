@@ -6,6 +6,7 @@ export default function CategoryChips({ categories }: { categories: Category[] }
     sunnah: 'Sunnah',
     pendek: 'Pendek',
     panjang: 'Panjang',
+    sangat_panjang: 'Sangat Panjang',
   }
   return (
     <div className="chips">

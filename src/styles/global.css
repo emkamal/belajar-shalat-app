@@ -387,6 +387,23 @@ html[data-theme="dark"] .section-title { color: var(--gold-400); }
 /* Slide */
 .variation-picker { display: flex; gap: 8px; margin-bottom: 12px; }
 .slide .text-arabic { margin-top: 8px; }
+.field-label { display: block; }
+/* Variation bar aligned to the right */
+.variation-bar { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
+.variation-bar label { font-size: 12px; }
+.variation-select { min-width: 160px; }
+
+/* Select styling */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
 
 /* Menu */
 .menu {

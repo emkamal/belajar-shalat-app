@@ -50,26 +50,23 @@ export default function Slide({ content, showVariationPicker = true }: SlideProp
 
   return (
     <div className="slide">
-      {/* Variation selector (simple) */}
+      {/* Variation selector (dropdown) */}
       {showVariationPicker && content.variasi && content.variasi.length > 0 && (
-        <div className="variation-picker">
-          <button
-            type="button"
-            onClick={() => setActiveVariationId(null)}
-            className={`btn btn-chip ${activeVariationId === null ? '' : 'btn-outline'}`}
+        <div className="section variation-bar">
+          <label htmlFor={`variation-${content.id}`} className="text-muted">
+            Variasi
+          </label>
+          <select
+            id={`variation-${content.id}`}
+            className="variation-select"
+            value={activeVariationId ?? ''}
+            onChange={(e) => setActiveVariationId(e.target.value || null)}
           >
-            Default
-          </button>
-          {content.variasi.map((v) => (
-            <button
-              key={v.id}
-              type="button"
-              onClick={() => setActiveVariationId(v.id)}
-              className={`btn btn-chip ${activeVariationId === v.id ? '' : 'btn-outline'}`}
-            >
-              {v.kategori.includes('panjang') ? 'Panjang' : v.kategori.includes('pendek') ? 'Pendek' : v.id}
-            </button>
-          ))}
+            <option value="">Default</option>
+            {content.variasi.map((v, idx) => (
+              <option key={v.id} value={v.id}>{`Variasi ${idx + 1}`}</option>
+            ))}
+          </select>
         </div>
       )}
 

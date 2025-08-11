@@ -1,6 +1,6 @@
 // Content data model types
 
-export type Category = 'wajib' | 'sunnah' | 'pendek' | 'panjang'
+export type Category = 'wajib' | 'sunnah' | 'pendek' | 'panjang' | 'sangat_panjang'
 
 export interface ContentVariation {
   id: string
