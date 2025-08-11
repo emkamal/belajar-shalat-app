@@ -5,15 +5,7 @@
   "latin": "Allahu Akbar",
   "terjemahan": "Allah Maha Besar",
   "kategori": ["rukun", "pendek"],
-  "variasi": [
-    {
-      "id": "takbir_2",
-      "arab": "اللّٰهُ أَكْبَرُ كَبِيرًا",
-      "latin": "Allahu Akbaru Kabira",
-      "terjemahan": "Allah Maha Besar dengan kebesaran yang sempurna",
-      "kategori": ["sunnah", "panjang"]
-    }
-  ],
+  "variasi": [],
   "penjelasan": {
     "makna": "Takbiratul ihram adalah takbir pertama yang menandai dimulainya shalat dan mengharamkan segala perbuatan selain shalat.",
     "dalil": [

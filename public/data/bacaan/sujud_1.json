@@ -1,18 +1,61 @@
 {
   "id": "sujud_1",
-  "title": "Bacaan Sujud",
+  "title": "Sujud",
   "arab": "سُبْحَانَ رَبِّيَ الأَعْلَى",
   "latin": "Subhaana rabbiyal a'laa",
-  "terjemahan": "Maha Suci Tuhanku Yang Maha Tinggi",
+  "terjemahan": "Maha Suci Rabbku Yang Maha Tinggi",
   "kategori": ["wajib", "pendek"],
   "variasi": [
     {
-      "id": "sujud_2",
+      "id": "sujud_1b",
+      "title": "Bacaan Sujud - Dengan Pujian",
       "arab": "سُبْحَانَ رَبِّيَ الأَعْلَى وَبِحَمْدِهِ",
       "latin": "Subhaana rabbiyal a'laa wa bihamdih",
-      "terjemahan": "Maha Suci Tuhanku Yang Maha Tinggi dan dengan memuji-Nya",
+      "terjemahan": "Maha Suci Rabbku Yang Maha Tinggi dan Maha Terpuji",
+      "kategori": ["sunnah", "pendek"]
+    },
+    {
+      "id": "sujud_2",
+      "title": "Doa Sujud Panjang 1",
+      "arab": "سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلاَئِكَةِ وَالرُّوحِ",
+      "latin": "Subbuuhun qudduusun rabbul malaaikati war ruuh",
+      "terjemahan": "Yang Maha Suci, Yang Maha Suci, Rabb para malaikat dan ruh",
+      "kategori": ["sunnah", "panjang"]
+    },
+    {
+      "id": "sujud_3",
+      "title": "Doa Sujud Panjang 2",
+      "arab": "اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ دِقَّهُ وَجِلَّهُ وَأَوَّلَهُ وَآخِرَهُ وَعَلاَنِيَتَهُ وَسِرَّهُ",
+      "latin": "Allaahummaghfir lii dzambii kullahu diqqahu wa jillahu wa awwalahu wa aakhirahu wa 'alaaniyatahu wa sirrahu",
+      "terjemahan": "Ya Allah, ampunilah seluruh dosaku, yang kecil maupun besar, yang awal maupun akhir, yang tampak maupun tersembunyi",
       "kategori": ["sunnah", "panjang"]
     }
-  ]
+  ],
+  "penjelasan": {
+    "makna": "Sujud adalah puncak ketundukan seorang hamba di hadapan Allah, posisi terdekat antara hamba dan Rabb-nya.",
+    "dalil": [
+      {
+        "sumber": "HR. Muslim",
+        "teks": "Rasulullah SAW bersabda: 'Posisi terdekat seorang hamba dengan Rabbnya adalah ketika ia sujud, maka perbanyaklah doa saat itu.'"
+      },
+      {
+        "sumber": "HR. Abu Dawud, An-Nasa'i, Ahmad",
+        "teks": "Ketika sujud, Nabi SAW membaca 'Subhaana rabbiyal a'laa' tiga kali."
+      }
+    ],
+    "catatan_fiqih": "Minimal bacaan wajib adalah 'Subhaana rabbiyal a'laa' satu kali. Sunnahnya diulang tiga kali atau lebih. Doa tambahan saat sujud dianjurkan."
+  },
+  "media": {
+    "gambar": "images/sujud.png",
+    "audio": {
+      "pendek": "audio/sujud_pendek.mp3",
+      "pujian": "audio/sujud_pujian.mp3",
+      "panjang_1": "audio/sujud_panjang_1.mp3",
+      "panjang_2": "audio/sujud_panjang_2.mp3"
+    }
+  },
+  "meta": {
+    "versi": 1,
+    "last_updated": "2025-08-11"
+  }
 }
-
