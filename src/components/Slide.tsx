@@ -4,9 +4,7 @@ import { usePreferences } from '../state/PreferencesContext'
 
 export interface SlideProps {
   content: ContentItem
-  showVariationPicker?: boolean
   activeVariationId?: string | null
-  onChangeVariationId?: (id: string | null) => void
 }
 
 function pickInitialVariation(
@@ -18,9 +16,9 @@ function pickInitialVariation(
   return matchPreferred ?? variations[0]
 }
 
-export default function Slide({ content, showVariationPicker = false, activeVariationId, onChangeVariationId }: SlideProps) {
+export default function Slide({ content, activeVariationId }: SlideProps) {
   const { state } = usePreferences()
-  const [internalVariationId, setInternalVariationId] = useState<string | null>(
+  const [internalVariationId] = useState<string | null>(
     () => pickInitialVariation(content.variasi, state.defaultVariation)?.id ?? null,
   )
 
