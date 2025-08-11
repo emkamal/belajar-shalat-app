@@ -140,11 +140,7 @@ const { state } = usePreferences()
                 )}
 
                 <div className="section">
-                  <Slide
-                    content={content}
-                    activeVariationId={activeVariationId}
-                    onChangeVariationId={setActiveVariationId}
-                  />
+                  <Slide content={content} activeVariationId={activeVariationId} />
                 </div>
 
                 <div className="section">

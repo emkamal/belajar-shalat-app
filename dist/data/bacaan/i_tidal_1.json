@@ -1,18 +1,61 @@
 {
   "id": "i_tidal_1",
   "title": "I'tidal",
-  "arab": "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ",
-  "latin": "Sami'allahu liman hamidah",
+  "arab": "سَمِعَ اللّٰهُ لِمَنْ حَمِدَهُ",
+  "latin": "Sami'allaahu liman hamidah",
   "terjemahan": "Allah mendengar orang yang memuji-Nya",
   "kategori": ["wajib", "pendek"],
   "variasi": [
     {
+      "id": "i_tidal_1b",
+      "title": "I'tidal - Jawaban Makmum",
+      "arab": "رَبَّنَا وَلَكَ الْحَمْدُ",
+      "latin": "Rabbanaa wa lakal hamdu",
+      "terjemahan": "Ya Tuhan kami, segala puji hanya bagi-Mu",
+      "kategori": ["wajib", "pendek"]
+    },
+    {
       "id": "i_tidal_2",
+      "title": "I'tidal - Panjang 1",
       "arab": "رَبَّنَا لَكَ الْحَمْدُ مِلْءَ السَّمَاوَاتِ وَمِلْءَ الْأَرْضِ وَمِلْءَ مَا شِئْتَ مِنْ شَيْءٍ بَعْدُ",
-      "latin": "Rabbanaa lakal hamdu mil'as-samaawaati wa mil'al-ardi wa mil'a maa syi'ta min syai-in ba'du",
-      "terjemahan": "Ya Rabb kami, bagi-Mu segala puji sepenuh langit dan bumi dan sepenuh apapun yang Engkau kehendaki setelah itu",
+      "latin": "Rabbanaa lakal hamdu mil'as-samaawaati wa mil'al-ardhi wa mil'a maa syi'ta min syai-in ba'd",
+      "terjemahan": "Ya Tuhan kami, segala puji hanya bagi-Mu, sepenuh langit, sepenuh bumi, dan sepenuh apa saja yang Engkau kehendaki setelah itu",
+      "kategori": ["sunnah", "panjang"]
+    },
+    {
+      "id": "i_tidal_3",
+      "title": "I'tidal - Panjang 2",
+      "arab": "أَهْلَ الثَّنَاءِ وَالْمَجْدِ، أَحَقُّ مَا قَالَ الْعَبْدُ، وَكُلُّنَا لَكَ عَبْدٌ، اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ، وَلَا مُعْطِيَ لِمَا مَنَعْتَ، وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ",
+      "latin": "Ahlats-tsanaa-i wal-majdi, ahaqqu maa qaalal-'abdu, wa kullunaa laka 'abdu, Allaahumma laa maani'a limaa a'thaita, wa laa mu'thiya limaa mana'ta, wa laa yanfa'u dzal-jaddi minkal-jaddu",
+      "terjemahan": "Engkau adalah Tuhan yang berhak dipuji dan diagungkan. Perkataan yang paling benar adalah perkataan seorang hamba, dan kami semua adalah hamba-Mu. Ya Allah, tak ada yang dapat menahan apa yang Engkau beri, dan tak ada yang dapat memberi apa yang Engkau tahan, dan tak ada harta atau kekuasaan yang bisa berguna di hadapan-Mu",
       "kategori": ["sunnah", "panjang"]
     }
-  ]
+  ],
+  "penjelasan": {
+    "makna": "I'tidal adalah posisi berdiri tegak setelah ruku. Bacaan utamanya adalah memuji Allah dan mengakui kebesaran-Nya.",
+    "dalil": [
+      {
+        "sumber": "HR. Bukhari & Muslim",
+        "teks": "Rasulullah SAW ketika bangkit dari ruku mengucapkan 'Sami'allaahu liman hamidah'."
+      },
+      {
+        "sumber": "HR. Muslim",
+        "teks": "Ketika beliau berdiri tegak setelah ruku, beliau membaca 'Rabbanaa wa lakal hamdu mil'as-samaawaati...' hingga selesai."
+      }
+    ],
+    "catatan_fiqih": "Imam mengucapkan 'Sami'allaahu liman hamidah', makmum menjawab 'Rabbanaa wa lakal hamdu'. Jika shalat sendirian, boleh membaca keduanya."
+  },
+  "media": {
+    "gambar": "images/i_tidal.png",
+    "audio": {
+      "pendek_imam": "audio/i_tidal_pendek_imam.mp3",
+      "pendek_makmum": "audio/i_tidal_pendek_makmum.mp3",
+      "panjang_1": "audio/i_tidal_panjang_1.mp3",
+      "panjang_2": "audio/i_tidal_panjang_2.mp3"
+    }
+  },
+  "meta": {
+    "versi": 1,
+    "last_updated": "2025-08-11"
+  }
 }
-

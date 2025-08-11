@@ -12,11 +12,47 @@
       "latin": "Ushallii fardhas shalaati rak'ataini mustaqbilal qiblati lillahi ta'ala",
       "terjemahan": "Aku berniat melaksanakan shalat fardhu dua rakaat menghadap kiblat karena Allah Ta'ala",
       "kategori": ["sunnah", "panjang"]
+    },
+    {
+      "id": "niat_3",
+      "arab": "أُصَلِّي فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ لِلّٰهِ تَعَالَى",
+      "latin": "Ushallii fardhadh dhuhri arba'a raka'aatin mustaqbilal qiblati lillahi ta'ala",
+      "terjemahan": "Aku berniat melaksanakan shalat fardhu Dzuhur empat rakaat menghadap kiblat karena Allah Ta'ala",
+      "kategori": ["fardhu", "panjang"]
     }
   ],
   "penjelasan": {
-    "makna": "Niat adalah amalan hati. Sebagian orang membaca lafaz niat untuk membantu menghadirkan niat di dalam hati.",
-    "dalil": "HR. Bukhari & Muslim, 'Sesungguhnya setiap amalan tergantung niatnya.'"
+    "makna": "Niat adalah amalan hati. Sebagian ulama menganjurkan melafazkannya sebagai sarana membantu menghadirkan niat di dalam hati.",
+    "dalil": [
+      {
+        "sumber": "HR. Bukhari & Muslim",
+        "teks": "Sesungguhnya setiap amalan tergantung niatnya."
+      }
+    ],
+    "catatan_fiqih": "Menurut mayoritas ulama, melafalkan niat tidak wajib. Yang wajib adalah menghadirkan niat di dalam hati."
+  },
+  "tajwid": {
+    "arab_dengan_warna": "نَوَيْتُ أَنْ أُصَلِّيَ لِلّٰهِ تَعَالَى",
+    "keterangan": [
+      { "kata": "أَنْ", "jenis": "ghunnah", "penjelasan": "Dibaca dengung selama 2 harakat" }
+    ]
+  },
+  "referensi": [
+    {
+      "judul": "Fathul Bari",
+      "penulis": "Ibnu Hajar Al-Asqalani",
+      "halaman": "Jilid 1, hlm. 10"
+    }
+  ],
+  "media": {
+    "gambar": "images/niat_1.png",
+    "audio": {
+      "arab": "audio/niat_1_arab.mp3",
+      "latin": "audio/niat_1_latin.mp3"
+    }
+  },
+  "meta": {
+    "versi": 1,
+    "last_updated": "2025-08-11"
   }
 }
-

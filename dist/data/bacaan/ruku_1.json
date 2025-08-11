@@ -1,23 +1,57 @@
 {
   "id": "ruku_1",
-  "title": "Bacaan Ruku",
+  "title": "Ruku'",
   "arab": "سُبْحَانَ رَبِّيَ الْعَظِيمِ",
   "latin": "Subhaana rabbiyal 'adhiim",
   "terjemahan": "Maha Suci Tuhanku Yang Maha Agung",
   "kategori": ["wajib", "pendek"],
   "variasi": [
     {
-      "id": "ruku_2",
+      "id": "ruku_1b",
+      "title": "Bacaan Ruku - Pendek Plus",
       "arab": "سُبْحَانَ رَبِّيَ الْعَظِيمِ وَبِحَمْدِهِ",
-      "latin": "Subhaana rabbiyal 'adhiimi wa bihamdih",
-      "terjemahan": "Maha Suci Tuhanku Yang Maha Agung dan dengan memuji-Nya",
+      "latin": "Subhaana rabbiyal 'adhiimi wa bihamdihi",
+      "terjemahan": "Maha Suci Tuhanku Yang Maha Agung dan Maha Terpuji",
+      "kategori": ["sunnah", "pendek"]
+    },
+    {
+      "id": "ruku_2",
+      "title": "Bacaan Ruku - Panjang",
+      "arab": "سُبْحَانَكَ اللّٰهُمَّ رَبَّنَا وَبِحَمْدِكَ، اللّٰهُمَّ اغْفِرْ لِي",
+      "latin": "Subhaanaka Allaahumma Rabbanaa wa bihamdika, Allaahummaghfir lii",
+      "terjemahan": "Maha Suci Engkau ya Allah, Tuhan kami, dan segala puji bagi-Mu. Ya Allah, ampunilah aku",
+      "kategori": ["sunnah", "panjang"]
+    },
+    {
+      "id": "ruku_3",
+      "title": "Bacaan Ruku - Utsman bin Affan",
+      "arab": "سُبُّوحٌ قُدُّوسٌ، رَبُّ الْمَلَائِكَةِ وَالرُّوحِ",
+      "latin": "Subbuhun Quddusun, Rabbul malaaikati war-ruuh",
+      "terjemahan": "Maha Suci lagi Maha Kudus, Tuhan para malaikat dan ruh",
       "kategori": ["sunnah", "panjang"]
     }
   ],
   "penjelasan": {
-    "makna": "Ucapan tasbih dalam ruku sebagai bentuk pengagungan kepada Allah.",
-    "dalil": "HR. Muslim no. 772"
+    "makna": "Ruku adalah posisi membungkuk dalam shalat dengan punggung rata dan tangan bertumpu di lutut. Bacaan ruku merupakan bentuk pengagungan kepada Allah.",
+    "dalil": [
+      {
+        "sumber": "HR. Abu Dawud & Tirmidzi",
+        "teks": "Rasulullah SAW membaca 'Subhaana rabbiyal 'adhiim' tiga kali ketika ruku."
+      }
+    ],
+    "catatan_fiqih": "Minimal bacaan ruku adalah sekali, yang utama tiga kali, dan boleh lebih sesuai kemampuan."
   },
-  "ilustrasi": "gerakan_ruku.webp"
+  "media": {
+    "gambar": "images/ruku.png",
+    "audio": {
+      "pendek": "audio/ruku_pendek.mp3",
+      "pendek_plus": "audio/ruku_pendek_plus.mp3",
+      "panjang": "audio/ruku_panjang.mp3",
+      "subbuh_quddus": "audio/ruku_subbuh_quddus.mp3"
+    }
+  },
+  "meta": {
+    "versi": 1,
+    "last_updated": "2025-08-11"
+  }
 }
-

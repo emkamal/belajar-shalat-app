@@ -1,9 +1,46 @@
 {
   "id": "iftitah_1",
   "title": "Doa Iftitah",
-  "arab": "سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلَا إِلٰهَ غَيْرُكَ",
-  "latin": "Subhanakallahumma wabihamdika watabarakasmuka wata'ala jadduka wala ilaha ghairuk",
-  "terjemahan": "Maha Suci Engkau ya Allah dan dengan memuji-Mu, maha berkah nama-Mu, maha tinggi keagungan-Mu dan tiada ilah selain-Mu",
-  "kategori": ["sunnah", "pendek"]
+  "arab": "اللّٰهُمَّ بَاعِدْ بَيْنِي وَبَيْنَ خَطَايَايَ كَمَا بَاعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِ، اللّٰهُمَّ نَقِّنِي مِنْ خَطَايَايَ كَمَا يُنَقَّى الثَّوْبُ الْأَبْيَضُ مِنَ الدَّنَسِ، اللّٰهُمَّ اغْسِلْنِي مِنْ خَطَايَايَ بِالثَّلْجِ وَالْمَاءِ وَالْبَرَدِ",
+  "latin": "Allahumma baa‘id baynii wa bayna khathaayaaya kamaa baa‘adta baynal mashriqi wal maghrib. Allahumma naqqinii min khathaayaaya kamaa yunaqqats tsawbul abyadhu minad danas. Allahummaghsilnii min khathaayaaya bits-tsalji wal maa’i wal barad.",
+  "terjemahan": "Ya Allah, jauhkanlah antara aku dan kesalahanku sebagaimana Engkau menjauhkan antara timur dan barat. Ya Allah, sucikanlah aku dari kesalahanku sebagaimana kain putih dibersihkan dari kotoran. Ya Allah, cucilah kesalahanku dengan air, salju, dan embun.",
+  "kategori": ["sunnah", "panjang"],
+  "variasi": [
+    {
+      "id": "iftitah_2",
+      "arab": "سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلَا إِلٰهَ غَيْرُكَ",
+      "latin": "Subhaanaka Allahumma wa bihamdika, wa tabaarakas-muka, wa ta‘aalaa jadduka, wa laa ilaaha ghairuk.",
+      "terjemahan": "Maha Suci Engkau, ya Allah, dan segala puji bagi-Mu. Maha berkah nama-Mu, Maha tinggi kebesaran-Mu, dan tidak ada tuhan selain Engkau.",
+      "kategori": ["sunnah", "pendek"]
+    },
+    {
+      "id": "iftitah_3",
+      "arab": "اللهُ أَكْبَرُ كَبِيْراً وَالْحَمْدُ لِلَّهِ كَثِيْراً وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيْلًا. اِنِّى وَجَّهْتُ وَجْهِيَ لِلَّذِيْ فَطَرَ السَّمَاوَاتِ وَالْأَرْضَ حَنِيْفًا مُسْلِمًا وَمَا أَنَا مِنَ الْمُشْرِكِيْنَ. اِنَّ صَلَاتِيْ وَنُسُكِيْ وَمَحْيَايَ وَمَمَاتِيْ لِلّٰهِ رَبِّ الْعَالَمِيْنَ. لاَ شَرِيْكَ لَهُ وَبِذٰلِكَ أُمِرْتُ وَأَنَا مِنَ الْمُسْلِمِيْنَ",
+      "latin": "Allaahu akbar kabiiroo walhamdulillaahi katsiiraa, wa subhaanallaahi bukratan wa ashiilaa. Innii wajjahtu wajhiya lilladzii fatharas samaawaati wal ardha haniifan musliman wa maa anaa minal musyrikiin. Inna shalaatii wa nusukii wa mahyaaya wa mamaatii lillaahi rabbil ‘aalamiin. Laa syariikalahu wa bidzaalika umirtu wa anaa minal muslimiin.",
+      "terjemahan": "Allah Maha Besar, maha sempurna kebesaran-Nya. Segala puji bagi Allah, pujian yang sebanyak-banyaknya. Dan Maha Suci Allah sepanjang pagi dan petang. Kuhadapkan wajahku kepada zat yang menciptakan langit dan bumi dengan penuh ketulusan dan kepasrahan, dan aku bukanlah termasuk orang-orang musyrik. Sesungguhnya shalatku, ibadahku, hidupku, dan matiku hanyalah untuk Allah, Tuhan seluruh alam. Tidak ada sekutu bagi-Nya, dan dengan demikianlah aku diperintahkan, dan aku termasuk orang-orang yang berserah diri.",
+      "kategori": ["sunnah", "sangat_panjang"],
+      "sumber": "NU Online - Tuntunan Salat Lengkap"
+    }
+  ],
+  "penjelasan": {
+    "makna": "Doa iftitah dibaca setelah takbiratul ihram sebelum membaca Al-Fatihah. Ia berfungsi sebagai pembukaan shalat dengan pujian kepada Allah dan permohonan pengampunan dosa.",
+    "dalil": [
+      {
+        "sumber": "HR. Bukhari & Muslim",
+        "teks": "Rasulullah SAW jika memulai shalat beliau mengucapkan doa ini."
+      }
+    ],
+    "catatan_fiqih": "Doa iftitah hukumnya sunnah, tidak membatalkan shalat jika ditinggalkan."
+  },
+  "media": {
+    "gambar": "images/iftitah_1.png",
+    "audio": {
+      "arab": "audio/iftitah_1_arab.mp3",
+      "latin": "audio/iftitah_1_latin.mp3"
+    }
+  },
+  "meta": {
+    "versi": 1,
+    "last_updated": "2025-08-11"
+  }
 }
-
