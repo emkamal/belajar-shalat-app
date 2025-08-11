@@ -393,6 +393,11 @@ html[data-theme="dark"] .section-title { color: var(--gold-400); }
 .variation-bar label { font-size: 12px; }
 .variation-select { min-width: 160px; }
 
+/* Slide title bar with right-aligned variation */
+.slide-titlebar { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.slide-titlebar h2 { margin: 0; flex: 1 1 auto; }
+.slide-title { margin-right: 12px; }
+
 /* Select styling */
 select {
   appearance: none;

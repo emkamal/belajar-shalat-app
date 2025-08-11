@@ -18,13 +18,13 @@ function SlidePage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const location = useLocation() as { state?: { dir?: number } }
-  const { state } = usePreferences()
+const { state } = usePreferences()
   const [content, setContent] = useState<ContentItem | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [toc, setToc] = useState<TableOfContentsEntry[]>([])
-  // Also respect global preference toggled from header menu
-  const [showConfig] = useState<boolean>(false)
+  // Variation control state (per slide)
+  const [activeVariationId, setActiveVariationId] = useState<string | null>(null)
   // Direction for page transitions comes from router state
 
   useEffect(() => {
@@ -113,11 +113,26 @@ function SlidePage() {
             {error && <p className="error-text">{error}</p>}
             {!loading && !error && content && (
               <>
-                <h2 className="no-top-margin">{content.title}</h2>
+                <div className="slide-titlebar">
+                  <h2 className="no-top-margin slide-title">{content.title}</h2>
+                  {content.variasi && content.variasi.length > 0 && (
+                    <select
+                      className="variation-select"
+                      value={activeVariationId ?? ''}
+                      onChange={(e) => setActiveVariationId(e.target.value || null)}
+                      aria-label="Pilih variasi bacaan"
+                    >
+                      <option value="">Default</option>
+                      {content.variasi.map((v, idx) => (
+                        <option key={v.id} value={v.id}>{`Variasi ${idx + 1}`}</option>
+                      ))}
+                    </select>
+                  )}
+                </div>
                 {content.ilustrasi && <Illustration file={content.ilustrasi} />}
                 <div className="ornate-divider" />
 
-                {(showConfig || state.showConfig) && (
+                {state.showConfig && (
                   <div className="row section">
                     <ToggleGroup />
                     <FontSizePicker />
@@ -125,7 +140,11 @@ function SlidePage() {
                 )}
 
                 <div className="section">
-                  <Slide content={content} showVariationPicker={true} />
+                  <Slide
+                    content={content}
+                    activeVariationId={activeVariationId}
+                    onChangeVariationId={setActiveVariationId}
+                  />
                 </div>
 
                 <div className="section">

@@ -5,6 +5,8 @@ import { usePreferences } from '../state/PreferencesContext'
 export interface SlideProps {
   content: ContentItem
   showVariationPicker?: boolean
+  activeVariationId?: string | null
+  onChangeVariationId?: (id: string | null) => void
 }
 
 function pickInitialVariation(
@@ -16,14 +18,16 @@ function pickInitialVariation(
   return matchPreferred ?? variations[0]
 }
 
-export default function Slide({ content, showVariationPicker = true }: SlideProps) {
+export default function Slide({ content, showVariationPicker = false, activeVariationId, onChangeVariationId }: SlideProps) {
   const { state } = usePreferences()
-  const [activeVariationId, setActiveVariationId] = useState<string | null>(
+  const [internalVariationId, setInternalVariationId] = useState<string | null>(
     () => pickInitialVariation(content.variasi, state.defaultVariation)?.id ?? null,
   )
 
+  const currentVariationId = activeVariationId ?? internalVariationId
+
   const resolved = useMemo(() => {
-    if (!activeVariationId || !content.variasi || content.variasi.length === 0) {
+    if (!currentVariationId || !content.variasi || content.variasi.length === 0) {
       return {
         arab: content.arab ?? '',
         latin: content.latin ?? '',
@@ -31,7 +35,7 @@ export default function Slide({ content, showVariationPicker = true }: SlideProp
         kategori: content.kategori,
       }
     }
-    const v = content.variasi.find((vv) => vv.id === activeVariationId)
+    const v = content.variasi.find((vv) => vv.id === currentVariationId)
     if (!v) {
       return {
         arab: content.arab ?? '',
@@ -46,29 +50,11 @@ export default function Slide({ content, showVariationPicker = true }: SlideProp
       terjemahan: v.terjemahan,
       kategori: v.kategori,
     }
-  }, [activeVariationId, content])
+  }, [currentVariationId, content])
 
   return (
     <div className="slide">
-      {/* Variation selector (dropdown) */}
-      {showVariationPicker && content.variasi && content.variasi.length > 0 && (
-        <div className="section variation-bar">
-          <label htmlFor={`variation-${content.id}`} className="text-muted">
-            Variasi
-          </label>
-          <select
-            id={`variation-${content.id}`}
-            className="variation-select"
-            value={activeVariationId ?? ''}
-            onChange={(e) => setActiveVariationId(e.target.value || null)}
-          >
-            <option value="">Default</option>
-            {content.variasi.map((v, idx) => (
-              <option key={v.id} value={v.id}>{`Variasi ${idx + 1}`}</option>
-            ))}
-          </select>
-        </div>
-      )}
+      {/* Variation UI removed from here; parent can control via props */}
 
       {/* Content fields based on preferences */}
       {state.showArab && resolved.arab && (
